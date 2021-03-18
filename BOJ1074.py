@@ -6,7 +6,6 @@ N, row, col = map(int, readline().split())
 N = 2 ** N
 
 def solve(n, start_r, start_c, seq):
-    print(n, start_r, start_c, seq)
     if start_r >= N or start_c >= N or n < 2:
         return
     if n == 2:
