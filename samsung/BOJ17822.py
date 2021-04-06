@@ -75,14 +75,13 @@ def delete():
                         elif circles[r][c] > mean:
                             circles[r][c] -= 1
 def rotate(x, d, k):
-    for i in range(1, len(circles)):
-        if i % x == 0:
-            # 시계 방향
-            if d == 0:
-                for _ in range(k):
-                    circles[i].appendleft(circles[i].pop())
-            else:
-                for _ in range(k):
-                    circles[i].append(circles[i].popleft())
+    for i in range(x, len(circles), x):
+        # 시계 방향
+        if d == 0:
+            for _ in range(k):
+                circles[i].appendleft(circles[i].pop())
+        else:
+            for _ in range(k):
+                circles[i].append(circles[i].popleft())
 
 solve()
