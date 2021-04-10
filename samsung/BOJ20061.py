@@ -15,12 +15,6 @@ def solve():
         drop_block(t, x, y)
         green = delete(green)
         blue = delete(blue)
-        # for b in green:
-        #     print(b)
-        # print()
-        # for b in blue:
-        #     print(b)
-        # print()
 
     print(point)
     cnt = 0
