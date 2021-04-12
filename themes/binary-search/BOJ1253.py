@@ -7,21 +7,21 @@ arr = list(map(int, readline().split()))
 def solve():
     cnt = 0
     arr.sort()
-    for num in arr:
-        if binary_search(num):
+    for i in range(len(arr)):
+        if binary_search(i, arr[i]):
             cnt += 1
     print(cnt)
 
-def binary_search(target):
+def binary_search(i, target):
+    temp = arr[:i] + arr[i+1:]
     left = 0
-    right = N-1
+    right = N - 2
     while left < right:
-        mid = (left + right) // 2
-        cur = arr[left] + arr[mid]
+        cur = temp[left] + temp[right]
         if cur > target:
-            right = mid - 1
+            right -= 1
         elif cur < target:
-            left = mid + 1
+            left += 1
         else:
             return True
 
