@@ -27,17 +27,17 @@ public class LEET234 {
 
         while (fast != null && fast.next != null){
             fast = fast.next.next;
-            ListNode temp = slow.clone();
+            ListNode temp = slow;
             slow = slow.next;
-            rev.next = rev;
-            rev = slow;
+            temp.next = rev;
+            rev = temp;
         }
         if(fast != null){
             slow = slow.next;
         }
-        while (rev != null){
-            System.out.println(rev.val);
-            rev
+        while (rev.val != -1 && rev.val == slow.val) {
+            rev = rev.next;
+            slow = slow.next;
         }
         return rev.val == -1;
     }
