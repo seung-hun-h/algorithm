@@ -1,22 +1,28 @@
 from typing import *
+import collections
 
 def removeDuplicateLetters(s: str) -> str:
-    ans = ""
-    for i in range(len(s)):
-        idx = -1
-        for j in range(len(ans)):
-            if s[i] == ans[j]:
-                idx = j
-                break
-        # Not duplicated
-        if idx == -1:
-            ans += s[i]
-        else:
-        # compare new string and old string
-            if ans > ans[:idx]+ans[idx+1:]+s[i]:
-                ans = ans[:idx]+ans[idx+1:]+s[i]
-        print(ans)
-    return ans
+    for char in sorted(set(s)):
+        suffix = s[s.index(char):]
+
+        if set(s) == set(suffix):
+            return char + removeDuplicateLetters(s.replace(char, ''))
+    
+    return ''
+
+def removeDuplicateLetters2(s: str) -> str:
+    counter, stack = collections.Counter(s), []
+
+    for char in s:
+        counter[char] -= 1
+
+        if char in stack:
+            continue
+            
+        while stack and char < stack[-1] and counter[stack[-1]] > 0:
+            stack.pop()
+        stack.append(char)
+    return ''.join(stack)
 
 res = removeDuplicateLetters(s = "bcabc")
 print(res)

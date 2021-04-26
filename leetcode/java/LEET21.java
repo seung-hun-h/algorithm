@@ -25,7 +25,7 @@ public class LEET21 {
         node5.next = node6;
 
 
-        System.out.println(mergeTwoLists(node1, node4).value);
+        System.out.println(mergeTwoLists(node1, node4).val);
     }
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode root = new ListNode(0);
