@@ -51,7 +51,6 @@ def solve2():
         for u, v in enumerate(map(int, readline().split())):
             graph[u+1] = v
         cnt = 0
-        done = set()
         for u in graph:
             if visited[u]:
                 continue
@@ -60,6 +59,7 @@ def solve2():
             while not visited[cur]:
                 visited[cur] = True
                 cur = graph[cur]
+            
             start = u
             while start != cur:
                 cnt += 1
