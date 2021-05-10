@@ -24,9 +24,6 @@ def findItinerary2(tickets: List[List[str]]) -> List[str]:
             while graph[stack[-1]]:
                 stack.append(graph[stack[-1]].pop(0))
             route.append(stack.pop())
-            print(stack)
-            print(route)
-
     graph = collections.defaultdict(list)
 
     for u, v in sorted(tickets):
