@@ -1,7 +1,7 @@
 /**
- * LEET543
+ * LEET226
  */
-public class LEET543 {    
+public class LEET226 {    
 //   Definition for a binary tree node.
     public static class TreeNode {
         int val;
@@ -16,7 +16,7 @@ public class LEET543 {
         }
     }
     public static void main(String[] args){
-        Integer[] root = {1, 2, 3, 4, 5};
+        Integer[] root = {5,4,5,1,1,5};
         TreeNode[] nodes = new TreeNode[root.length];
         for(int i=0;i<root.length;i++){
             if(root[i] == null){
@@ -38,21 +38,18 @@ public class LEET543 {
                 cur_node.right = nodes[right];
             }
         }
-        System.out.println(diameterOfBinaryTree(nodes[0]));
+        System.out.println(invertTree(nodes[0]));
     }
     static int longest = 0;
-    public static int diameterOfBinaryTree(TreeNode root){
-        dfs(root);
-        return longest;
+    public static TreeNode invertTree(TreeNode root){
+        return dfs(root);
     }
-    public static int dfs(TreeNode node){
-        if(node == null){
-            return -1;
-        }
-        int left = dfs(node.left);
-        int right = dfs(node.right);
+    public static TreeNode dfs(TreeNode node){
+        if(node == null)
+            return null;
 
-        longest = Math.max(longest, left+right+2);
-        return 1 + Math.max(left, right);
+        TreeNode left = dfs(node.left), right = dfs(node.right);
+        node.right = left; node.left = right;
+        return node;
     }
 }
