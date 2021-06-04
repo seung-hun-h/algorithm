@@ -1,7 +1,6 @@
 /**
  * LEET687
  */
-import java.util.*;
 public class LEET687 {    
 //   Definition for a binary tree node.
     public static class TreeNode {

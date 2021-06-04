@@ -31,6 +31,7 @@ class Trie:
         result = []
         node = self.root
 
+        # 판별 3
         while word:
             if node.word_id >= 0:
                 if self.is_palindrome(word):
@@ -38,9 +39,11 @@ class Trie:
             node = node.children[word[0]]
             word = word[1:]
         
+        # 판별 1
         if node.word_id >= 0 and node.word_id != index:
             result.append([index, node.word_id])
         
+        # 판별 2
         for palindrome_id in node.palindrome_word_ids:
             result.append([index, palindrome_id])
 
