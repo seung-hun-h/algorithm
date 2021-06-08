@@ -18,4 +18,6 @@ def searchMatrix2(matrix: List[List[int]], target: int) -> bool:
             col -= 1
 
         else:
-            row += 1  
+            row += 1
+
+    return False  
