@@ -11,7 +11,7 @@ def solve():
 
     pq = []
     for lesson in lessons:
-        # 
+        # 수업 시간이 겹치치 않을 경우 큐에서 제거
         if pq and pq[0] <= lesson[0]:
             heapq.heappop(pq)
         heapq.heappush(pq, lesson[1])
@@ -19,3 +19,8 @@ def solve():
     print(len(pq)) 
 
 solve()
+
+"""
+해결: x
+시간: 50분
+"""

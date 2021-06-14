@@ -4,8 +4,8 @@ readline = stdin.readline
 
 N = int(readline())
 tree = collections.defaultdict(list)
-cols = collections.defaultdict(list)
-children = set()
+cols = collections.defaultdict(list) # 열 번호 저장
+children = set() # 루트 노드를 구하기 위해 자식 노드를 저장한다.
 
 for _ in range(N):
     u, v, w = map(int, readline().split())
@@ -18,15 +18,15 @@ def solve():
     
     find_col_level(root, 1)
 
-
-    result = [0, 0]
+    result = [0, 0] # 0: level, 1: width
     for level in sorted(cols):
         width = max(cols[level]) - min(cols[level]) + 1
         if result[1] < width:
             result = [level, width]
 
     print(*result)
-    
+
+# 중위 순회
 col = 1
 def find_col_level(node, level):
     global col
@@ -37,7 +37,6 @@ def find_col_level(node, level):
     cols[level].append(col)
     col += 1
     find_col_level(tree[node][1], level+1)
-
 
 def find_root():
     root = 1
