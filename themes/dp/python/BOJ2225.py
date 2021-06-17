@@ -17,8 +17,7 @@ def solve():
                 dp[i][j] = i+1
             else:
                 dp[i][j] = (dp[i][j-1] + dp[i-1][j]) % 1000000000
-
-    # print(dp[1])
-    print(dp[N][K] % 1000000000)
+    
+    # print(dp[N][K] % 1000000000)
 
 solve()
