@@ -1,23 +1,22 @@
 def solution(lottos, win_nums):
-    rank = [6, 6, 5, 4, 3, 2, 1]
-    check = [False] * 46
-    length = len(lottos)
+    lose = 0
+    correct = 0
     
-    for win in win_nums:
-        check[win] = True
-    cnt = 0
-    zeros = 0
+    rank = {
+        6: 1,
+        5: 2,
+        4: 3,
+        3: 4,
+        2: 5,
+        1: 6,
+        0: 6
+    }
+    
     for lotto in lottos:
-        if lotto == 0: 
-            zeros += 1
-            continue
-        if check[lotto]:
-            cnt += 1
-
-    answer = [rank[cnt+zeros], rank[cnt]]
-    print(answer)
-
-
-    
-
-solution([41, 1, 0, 0, 31, 25], [31, 10, 45, 1, 6, 19])
+        if lotto in win_nums:
+            correct += 1
+        else:
+            if lotto == 0:
+                lose += 1
+                
+    return [rank[correct + lose], rank[correct]]
