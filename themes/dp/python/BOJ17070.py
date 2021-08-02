@@ -23,9 +23,5 @@ def solve():
                 if arr[i-1][j] != 1 and arr[i][j-1] != 1:
                     dp[2][i][j] = dp[0][i-1][j-1] + dp[1][i-1][j-1] + dp[2][i-1][j-1]
 
-    for d in dp:
-        for s in d:
-            print(s)
-        print()
     print(dp[0][-1][-1] + dp[1][-1][-1] + dp[2][-1][-1])
 solve()
