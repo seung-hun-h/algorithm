@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 def solution(line1, line2):
     
     if len(line1) == len(line2):
@@ -25,4 +27,32 @@ def solution(line1, line2):
 
     return answer
 
-print(solution("a", "b"))
+def solution2(line1, line2):
+    dp = list()
+    ans = 0
+    n, m = len(line1), len(line2)
+
+    for i in range(n - m + 1):
+        current = line1[i:i+m]
+        dp.append(current)
+        if current == line2:
+            ans += 1
+
+    for i in range(1, n - m + 1):
+        new_dp = []
+        for j in range(len(dp) - m + 1):
+            current = ""
+            for k in range(m):
+                current += dp[j+k][k]
+            new_dp.append(current)
+            if current == line2:
+                ans += 1
+
+        if not new_dp:
+            break
+
+        dp = new_dp
+
+    print(dp)
+    return ans
+print(solution2("abcbcd", "bcd"))
