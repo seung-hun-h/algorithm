@@ -1,0 +1,9 @@
+"""
+link = https://www.acmicpc.net/problem/4902
+SOLVING : m 
+IMPLEMENTATION: m
+DEBUGING: m
+CLEAR : 
+"""
+from sys import stdin
+readline = stdin.readline
