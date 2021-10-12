@@ -13,8 +13,10 @@ for _ in range(M):
     graph[m].append((n, c))
 
 def solve():
-    left, right = 0, 10e14 + 1
-    print(left, right)
+    for i in range(1, 21):
+        if not dijkstra(i): continue
+        print(i)
+        return
     print(-1)
 
 def dijkstra(limit):
