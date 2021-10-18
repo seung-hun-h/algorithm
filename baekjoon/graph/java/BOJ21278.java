@@ -60,6 +60,5 @@ class BOJ21278 {
         }
 
         System.out.println(c1 +" " + c2 +" "+ (ans*2));
-
     }
 }

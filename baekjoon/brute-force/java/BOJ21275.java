@@ -21,7 +21,7 @@ public class BOJ21275 {
                     if (result[0] != -1) {
                         System.out.println("Multiple");
                         return;
-                    } else {
+                    } else { 
                         result = new long[] {A, i, j};
                     }
                 }
