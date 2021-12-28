@@ -6,7 +6,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     var current = sequence[0]
     var next = current
 
-    for (i in 1..n-1) {
+    for (i in 1 until n) {
         next = sequence[i]
 
         if (current != next) {
