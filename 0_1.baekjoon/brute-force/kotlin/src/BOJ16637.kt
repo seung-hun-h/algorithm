@@ -12,7 +12,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     println(dfs(numbers[0], 0))
 }
 
-fun dfs(number: Int, idx: Int): Int {
+private fun dfs(number: Int, idx: Int): Int {
     if (idx == operators.size) {
         return number
     }
@@ -29,7 +29,7 @@ fun dfs(number: Int, idx: Int): Int {
     return max
 }
 
-fun calc(num1: Int, num2: Int, operator: Char): Int {
+private fun calc(num1: Int, num2: Int, operator: Char): Int {
     return when (operator) {
         '+' -> num1 + num2
         '*' -> num1 * num2
